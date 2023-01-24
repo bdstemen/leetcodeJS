@@ -10,45 +10,47 @@
  * @return {ListNode}
  */
 
- // initialize empty nodes array
-// initialize revList, poppedNode, revListEnd to null
 
-// while head is not null
-  // push head to nodes array
-  // head gets head.next
-  // assign .next of the last node in the array to null
 
-// while nodes array length
-  // pop node
-  // if revList is null
-      // revList gets poppedNode
-  // otherwise
-    // revlistEnd.next gets poppedNode
-  // revListEnd gets poppedNode
+ var reverseList = function(head) {
+  let pre = null;
+  let next = null;
 
-// return revList
+  while (head) {
+      next = head.next;
+      head.next = pre;
+      pre = head;
+      head = next;
+  }
 
-var reverseList = function(head) {
-    if (!head) return head;
-
-    let nodes = [];
-    let revList, poppedNode, revListEnd = null;
-
-    while (head) {
-        nodes.push(head);
-        head = head.next;
-        nodes[nodes.length - 1].next = null;
-    }
-
-    while (nodes.length) {
-        poppedNode = nodes.pop();
-        if (revList) {
-            revListEnd.next = poppedNode;
-        } else {
-            revList = poppedNode;
-        }
-        revListEnd = poppedNode;
-    }
-
-    return revList;
+  return pre;
 };
+
+
+
+// var reverseList = function(head) {
+//     if (!head) return null;
+
+//     let curr = head;
+//     let tail = null;
+//     let nodes = [];
+
+//     while (head) {
+//         head = head.next;
+//         nodes.push(curr);
+//         curr.next = null;
+//         curr = head;
+//     }
+
+//     while (nodes.length) {
+//         curr = nodes.pop();
+//         if (head) {
+//             tail.next = curr;
+//         } else {
+//             head = curr;
+//         }
+//         tail = curr;
+//     }
+
+//     return head;
+// };
