@@ -17,3 +17,35 @@
       .slice(0, k)
       .map((keyValPair) => keyValPair[0]);
 };
+
+
+// bucket sort method:
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+    let numCount = {};
+    let buckets = [];
+    let result = [];
+
+    for (let i = 0; i <= nums.length; i++) {
+        buckets.push([]);
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        if (numCount.hasOwnProperty(nums[i])) numCount[nums[i]]++;
+        else numCount[nums[i]] = 1;
+    }
+
+    for (let num in numCount) {
+        let count = numCount[num];
+        buckets[count].push(num);
+    }
+
+    for (let i = buckets.length - 1; i > -1; i--) {
+        if (buckets[i]) result.push(...buckets[i]);
+        if (result.length === k) return result;
+    }
+};
