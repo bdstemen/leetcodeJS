@@ -22,3 +22,20 @@ var dailyTemperatures = function(temperatures) {
   }
   return result;
 };
+
+// OPTIMIZED SOLUTION
+// O(n) time
+// O(n) space
+
+var dailyTemperatures = function(temps) {
+  let result = Array(temps.length).fill(0);
+  let stack = [];
+  for (let i = 0; i < temps.length; i++) {
+      while (stack.length && temps[i] > stack[stack.length - 1][0]) {
+          let day = stack.pop();
+          result[day[1]] = i - day[1];
+      }
+      stack.push([temps[i], i]);
+  }
+  return result;
+};
