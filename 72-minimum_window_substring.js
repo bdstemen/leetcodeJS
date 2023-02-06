@@ -40,3 +40,27 @@ var minWindow = function(s, t) {
           }
       }
   }
+
+
+
+// LESS OPTIMAL SOLN (not actually sure that this works, it's quite slow)
+// let minWindow = '';
+//     for (let l = 0; l < s.length; l++) {
+//         if (t.indexOf(s[l]) < 0) continue;
+//         let tCopy = t.slice(0);
+//         let r = l;
+//         while (r < s.length) {
+//             let index = tCopy.indexOf(s[r]);
+//             if (index > -1) {
+//                 tCopy = tCopy.slice(0, index) + tCopy.slice(index + 1);
+//             }
+//             if (!tCopy.length) {
+//                 let window = s.slice(l, r + 1);
+//                 console.log(window);
+//                 if (window.length < minWindow.length || minWindow === '') minWindow = window;
+//                 break;
+//             }
+//             r++;
+//         }
+//     }
+//     return minWindow;
