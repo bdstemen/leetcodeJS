@@ -10,3 +10,20 @@ var hasCycle = function(head) {
   return false;
 };
 
+// Optimized approach
+// O(n) time
+// O(1) space
+var hasCycle = function(head) {
+    if (!head) return false;
+
+    let slow = head;
+    let fast = head.next;
+
+    while (fast && fast.next) {
+        if (slow === fast) return true;
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return false;
+};
