@@ -29,3 +29,41 @@ var reorderList = function(head) {
 
   return head;
 };
+
+
+// OPTIMIZED SOLUTION
+
+
+var reorderList = function(head) {
+  if (!head) return;
+
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+  }
+
+  let curr = slow;
+  let pre = null;
+  let next = null;
+
+  while (curr) {
+      next = curr.next;
+      curr.next = pre;
+      pre = curr;
+      curr = next;
+  }
+
+  curr = head;
+  next = curr.next;
+  let tail = pre;
+
+  while (next) {
+      curr.next = tail;
+      curr = tail;
+      tail = next;
+      next = curr.next;
+  }
+};
