@@ -18,3 +18,22 @@ var maxDepth = function(root) {
   if (!root) return 0;
   return (1 + Math.max(maxDepth(root.left), maxDepth(root.right)));
 };
+
+// BFS
+var maxDepth = function(root) {
+  if (!root) return 0;
+
+  let level = 0;
+  let queue = [root]
+
+  while (queue.length) {
+      let len = queue.length;
+      for (let i = len - 1; i >= 0; i--) {
+          let node = queue.shift()
+          if (node.left) queue.push(node.left);
+          if (node.right) queue.push(node.right);
+      }
+      level++;
+  }
+  return level;
+};
