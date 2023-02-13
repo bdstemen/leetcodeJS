@@ -14,3 +14,25 @@ var removeNthFromEnd = function(head, n) {
   nodes[index - 1].next = nodes[index].next;
   return head;
 };
+
+
+// OPTIMIZED 2 pointer solution
+var removeNthFromEnd = function(head, n) {
+  let dummy = new ListNode(0, head);
+  let l = dummy;
+  let r = head;
+
+  while (n > 0 && r) {
+      r = r.next;
+      n--;
+  }
+
+  while (r) {
+      l = l.next;
+      r = r.next;
+  }
+
+  l.next = l.next.next;
+
+  return dummy.next;
+};
