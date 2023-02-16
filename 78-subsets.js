@@ -13,3 +13,20 @@ var subsets = function(nums) {
   backtrack([], nums);
   return subsets;
 };
+
+// Cleaner solution:
+var subsets = function(nums) {
+    let subsets = [];
+
+    let backtrack = function(i, result) {
+        if (i >= nums.length) {
+            subsets.push(result);
+            return;
+        }
+        backtrack(i + 1, result);
+        backtrack(i + 1, result.concat(nums[i]));
+    }
+
+    backtrack(0, []);
+    return subsets;
+};
