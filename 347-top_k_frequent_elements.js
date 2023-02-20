@@ -49,3 +49,27 @@ var topKFrequent = function(nums, k) {
         if (result.length === k) return result;
     }
 };
+
+
+var topKFrequent = function(nums, k) {
+    let buckets = new Array(nums.length);
+    let numCount = {};
+    let result = [];
+
+    for (let i = 0; i <= nums.length; i++) {
+        buckets[i] = [];
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        numCount[nums[i]] = numCount[nums[i]] + 1 || 1;
+    }
+
+    for (let num in numCount) {
+        buckets[numCount[num]].push(num);
+    }
+
+    for (let i = buckets.length - 1; i > -1; i--) {
+        if (buckets[i]) result.push(...buckets[i]);
+        if (result.length === k) return result;
+    }
+};
