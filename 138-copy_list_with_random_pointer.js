@@ -36,3 +36,27 @@ var copyRandomList = function(head) {
 
     return copyHead;
 };
+
+// optimized
+var copyRandomList = function(head) {
+    if (!head) return null;
+
+    let curr = head;
+    let nodeHash = new Map([[null, null]]);
+
+    while (curr) {
+        nodeHash.set(curr, new Node(curr.val, null, null));
+        curr = curr.next;
+    }
+
+    curr = head;
+
+    while (curr) {
+        let copy = nodeHash.get(curr);
+        copy.next = nodeHash.get(curr.next);
+        copy.random = nodeHash.get(curr.random);
+        curr = curr.next;
+    }
+
+    return nodeHash.get(head);
+};
