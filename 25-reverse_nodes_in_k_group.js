@@ -47,3 +47,47 @@
 
   return revList
 };
+
+// optimized? idk
+var reverseKGroup = function(head, k) {
+    let revList = null;
+    let revChunk = true;
+    let pre = null;
+    let next = null;
+    let counter = 0;
+
+    while (revChunk) {
+        if (counter === k) {
+            if (!revList) revList = pre;
+            else end.next = pre;
+            while (pre.next) {
+                pre = pre.next;
+            }
+            end = pre;
+            pre = null;
+            counter = 0;
+            revChunk = nextChunkIsValid(head, k);
+        } else {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+            counter++;
+        }
+    }
+
+    end.next = head;
+
+    return revList;
+};
+
+var nextChunkIsValid = function(head, k) {
+    let chunkHead = head;
+    let chunkCounter = 0;
+    while (chunkHead) {
+        chunkHead = chunkHead.next;
+        chunkCounter++;
+        if (chunkCounter === k) return true;
+    }
+    return false;
+}
