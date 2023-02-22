@@ -60,3 +60,23 @@ var copyRandomList = function(head) {
 
     return nodeHash.get(head);
 };
+
+// using for loops to iterate over the list
+var copyRandomList = function(head) {
+    if (!head) return null;
+
+    let curr = head;
+    let nodeHash = new Map([[null, null]]);
+
+    for (let curr = head; curr; curr = curr.next) {
+        nodeHash.set(curr, new Node(curr.val, null, null));
+    }
+
+    for (let curr = head; curr; curr = curr.next) {
+        let copy = nodeHash.get(curr);
+        copy.next = nodeHash.get(curr.next);
+        copy.random = nodeHash.get(curr.random);
+    }
+
+    return nodeHash.get(head);
+};
