@@ -16,3 +16,18 @@ var removeElements = function(head, val) {
     }
     return dummy.next;
 };
+
+// cleaner solution, both are O(n) time and O(1) mem
+var removeElements = function(head, val) {
+    let curr = new ListNode(0, head);
+    head = curr;
+
+    while (curr.next) {
+        if (curr.next.val === val) {
+            curr.next = curr.next.next;
+        } else {
+            curr = curr.next;
+        }
+    }
+    return head.next;
+};
