@@ -1,7 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
+// pure recursive solution
  var permute = function(nums, curr = []) {
 
   let result = []
@@ -19,24 +16,25 @@
   return result;
 };
 
-// /**
-//  * @param {number[]} nums
-//  * @return {number[][]}
-//  */
-// var permute = function(nums, curr = []) {
-//     if (nums.length < 2) return [nums];
 
-//     let result = []
+// with helper function
+var permute = function(nums) {
+    let result = [];
 
-//     if (curr.length === nums.length) {
-//         result.push(curr);
-//     } else {
-//         nums.forEach((num) => {
-//             if (!curr.includes(num)) {
-//                 result = result.concat(permute(nums, curr.concat(num)));
-//             }
-//         })
-//     }
+    let innerFunc = (remainingNums, currentPerm = []) => {
+        if (!remainingNums.length) {
+            result.push(currentPerm);
+        } else {
+            for (let i = 0; i < remainingNums.length; i++) {
+                let newPerm = currentPerm.slice();
+                newPerm.push(remainingNums[i]);
+                let newNums = remainingNums.slice();
+                newNums.splice(i, 1);
+                innerFunc(newNums, newPerm);
+            }
+        }
+    }
 
-//     return result;
-// };
+    innerFunc(nums);
+    return result;
+};
