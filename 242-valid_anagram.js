@@ -1,15 +1,5 @@
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
 
- // I - two strings
- // O - boolean: true if the two words are anagrams, false otherwise
- // C - none
- // E - none
-
- // hash each word, then compare the values
+// O(n + m) time, O(n) memory
 
  var isAnagram = function(s, t) {
   if (s.length !== t.length) return false;
