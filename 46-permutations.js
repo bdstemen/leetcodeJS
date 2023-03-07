@@ -9,7 +9,6 @@
       nums.forEach((num, i) => {
           let remainingNums = nums.slice(0, i).concat(nums.slice(i + 1));
           result = result.concat(permute(remainingNums, curr.concat(num)));
-          remainingNums = nums;
       })
   }
 
