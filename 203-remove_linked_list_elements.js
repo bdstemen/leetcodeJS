@@ -1,3 +1,4 @@
+// O(n) time, O(1) mem
 var removeElements = function(head, val) {
     if (!head) return head;
 
@@ -17,7 +18,7 @@ var removeElements = function(head, val) {
     return dummy.next;
 };
 
-// cleaner solution, both are O(n) time and O(1) mem
+// cleaner solution, O(n) time, O(1) mem
 var removeElements = function(head, val) {
     let curr = new ListNode(0, head);
     head = curr;
