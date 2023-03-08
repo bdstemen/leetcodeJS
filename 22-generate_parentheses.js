@@ -1,25 +1,14 @@
-/**
- * @param {number} n
- * @return {string[]}
- */
 var generateParenthesis = function(n) {
-  let result = [];
+    let result = [];
 
-  const backtrack = (parens, open, close) => {
-      if (close === n && open === n) {
-          result.push(parens);
-          return;
-      }
+    let solver = function(open, close, curr = '') {
+        if (open === n && close === n) result.push(curr);
 
-      if (close < open) {
-          backtrack(parens + ')', open, close + 1);
-      }
+        if (open < n) solver(open + 1, close, curr + '(');
 
-      if (open < n) {
-          backtrack(parens + '(', open + 1, close);
-      }
-  };
+        if (open > close) solver(open, close + 1, curr + ')');
+    }
 
-  backtrack('', 0, 0);
-  return result;
+    solver(0, 0);
+    return result;
 };
