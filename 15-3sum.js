@@ -1,7 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
+// O(n * logn) time complexity?
  var threeSum = function(nums) {
   let result = [];
   let sum, l, r;
