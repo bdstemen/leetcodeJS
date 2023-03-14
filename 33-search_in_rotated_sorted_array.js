@@ -1,4 +1,4 @@
-// recursive solution
+// recursive solution O(logn) time, O(logn) space
 var search = function(nums, target) {
     let pivot, leftTargetIndex, rightTargetIndex, targetIndex;
 
@@ -34,7 +34,7 @@ const findTarget = (array, left, right, target) => {
 };
 
 
-// iterative solution
+// iterative solution O(logn) time, O(1) space
 var search = function(nums, target) {
     let pivot, leftTargetIndex, rightTargetIndex, targetIndex;
 
