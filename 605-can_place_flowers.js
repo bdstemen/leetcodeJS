@@ -1,3 +1,5 @@
+
+// O(n) time O(1) space;
 var canPlaceFlowers = function(flowerbed, n) {
     let flowers = 0;
     for (let i = 0; i < flowerbed.length; i++) {
