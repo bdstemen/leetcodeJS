@@ -3,21 +3,18 @@ var reverseBetween = function(head, left, right) {
 
     let dummy = new ListNode(0, head);
     let leftChunk = dummy;
-    let count = 0;
     let next = pre = null;
 
-    while(count < left - 1) {
+    for(let i = 0; i < left - 1; i++) {
         head = head.next;
         leftChunk = leftChunk.next;
-        count++;
     }
 
-    while(count < right) {
+    for(let i = 0; i <= right - left; i++) {
         next = head.next;
         head.next = pre;
         pre = head;
         head = next;
-        count++;
     }
 
     leftChunk.next.next = head;
