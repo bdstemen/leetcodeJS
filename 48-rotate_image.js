@@ -1,8 +1,11 @@
+
 var rotate = function(matrix) {
-    let t = l = 0;
-    let b = r = matrix.length - 1;
+    let l = 0;
+    let r = matrix.length - 1;
 
     while (l < r) {
+        let t = l;
+        let b = r;
         for (let i = 0; i < r - l; i++) {
             // save tl
             let temp = matrix[t][l + i];
@@ -20,8 +23,6 @@ var rotate = function(matrix) {
             matrix[t + i][r] = temp;
         }
         l++;
-        t++;
-        b--;
         r--;
     }
     return matrix;
