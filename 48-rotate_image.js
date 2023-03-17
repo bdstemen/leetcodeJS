@@ -1,4 +1,4 @@
-
+// O(n x m) time O(1) memory
 var rotate = function(matrix) {
     let l = 0;
     let r = matrix.length - 1;
