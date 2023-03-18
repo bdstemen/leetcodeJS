@@ -1,4 +1,4 @@
-
+// O(n + m) time
 var mergeTwoLists = function(list1, list2) {
   if (!list1 || !list2) return list1 || list2;
 
