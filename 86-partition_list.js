@@ -1,3 +1,4 @@
+// O(n) time O(1) space
 var partition = function(head, x) {
   if (!head || !head.next) return head;
 
