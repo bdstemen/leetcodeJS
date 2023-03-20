@@ -1,8 +1,5 @@
-/**
- * @param {character[][]} board
- * @return {boolean}
- */
- var isValidSudoku = function(board) {
+// Initial solution
+var isValidSudoku = function(board) {
   if (!checkRows(board)) return false;
   if (!checkCols(board)) return false;
   if (!checkGrids(board)) return false;
