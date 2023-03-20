@@ -37,7 +37,7 @@
   return revList
 };
 
-// optimized? idk
+// optimized solution
 var reverseKGroup = function(head, k) {
     let revList = null;
     let revChunk = true;
