@@ -63,7 +63,6 @@ var isValidSudoku = function(board) {
 
   const set = new Set()
 
-
   //i rows, j columns
   //check valid columns and rows O(9*9)
   for(let i = 0; i < board.length; i++){
