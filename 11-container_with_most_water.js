@@ -1,4 +1,4 @@
-// Initial solution
+// initial solution O(n) time O(1) space
  var maxArea = function(height) {
   let max = 0;
   let vol;
@@ -13,7 +13,7 @@
 };
 
 
-// optimized
+// optimized O(n) time O(1) space
 var maxArea = function(height) {
   let maxArea = 0;
   let i = 0;
