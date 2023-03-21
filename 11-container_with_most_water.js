@@ -1,7 +1,4 @@
-/**
- * @param {number[]} height
- * @return {number}
- */
+// Initial solution
  var maxArea = function(height) {
   let max = 0;
   let vol;
