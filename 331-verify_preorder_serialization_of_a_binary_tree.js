@@ -15,12 +15,16 @@ var isValidSerialization = function(preorder) {
 
 // optimized solution O(n) time O(n) space
 var isValidSerialization = function(preorder) {
-    let balance = 1;
+    let degree = 1;
     let nodes = preorder.split(',');
     for (let node of nodes) {
-        if (balance <= 0) return false;
-        else if (node === '#') balance--;
-        else balance++;
+        // account for In degree
+        degree--;
+
+        if (degree < 0) return false;
+
+        // account for Out degrees
+        if (node !== '#') degree += 2;
     }
-    return balance === 0;
+    return degree === 0;
 };
