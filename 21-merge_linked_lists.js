@@ -1,24 +1,21 @@
 // O(n + m) time
 var mergeTwoLists = function(list1, list2) {
-  if (!list1 || !list2) return list1 || list2;
+    let dummy = new ListNode();
+    let end = dummy;
 
-  let head = new ListNode();
-  let tail = head;
+    while (list1 && list2) {
+        if (list1.val < list2.val) {
+            end.next = list1;
+            list1 = list1.next;
+        } else {
+            end.next = list2;
+            list2 = list2.next;
+        }
+        end = end.next;
+    }
 
-  while (list1 && list2) {
-      if (list1.val <= list2.val) {
-          tail.next = list1;
-          list1 = list1.next;
-      } else {
-          tail.next = list2;
-          list2 = list2.next;
-      }
+    end.next = list1 ? list1 : list2;
 
-      tail = tail.next;
-  }
-
-  if (list1) tail.next = list1;
-  else tail.next = list2;
-
-  return head.next;
+    return dummy.next;
+};
 };
