@@ -60,7 +60,6 @@ const indices = {
 
 // optimized solution
 var isValidSudoku = function(board) {
-
   const set = new Set()
 
   //i rows, j columns
@@ -85,5 +84,4 @@ var isValidSudoku = function(board) {
   }
 
   return true
-
 };
