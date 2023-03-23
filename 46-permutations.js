@@ -15,6 +15,21 @@
   return result;
 };
 
+// for loop instead of foreach
+var permute = function(nums, curr = []) {
+    let result = [];
+
+    if (nums.length === 0) {
+        result.push(curr);
+    } else {
+        for (let i = 0; i < nums.length; i++) {
+            result = result.concat(permute(nums.slice(0, i).concat(nums.slice(i + 1)), curr.concat(nums[i])));
+        }
+    }
+
+    return result;
+};
+
 
 // with helper function
 var permute = function(nums) {
