@@ -42,11 +42,11 @@
 // O(n) solution with O(1) space complexity
 var productExceptSelf = function(nums) {
   let n = nums.length;
-  let output = new Array(n);
+  let output = new Array(n).fill(1);
   let temp = 1;
 
   for (let i = 0; i < n; i++) {
-      output[i] = temp;
+      output[i] *= temp;
       temp *= nums[i];
   }
 
