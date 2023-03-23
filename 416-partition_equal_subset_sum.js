@@ -1,4 +1,4 @@
-// brute force
+// brute force O(n^2) time complexity
 var canPartition = function(nums) {
     let result = false;
     let target = nums.reduce((acc, curr) => (acc + curr), 0) / 2;
