@@ -18,7 +18,7 @@ var canPartition = function(nums) {
 };
 
 
-// first try DP approach
+// DP approach
 var canPartition = function(nums) {
     let sum = nums.reduce((acc, curr) => (acc + curr), 0);
 
@@ -38,6 +38,5 @@ var canPartition = function(nums) {
             if (cache[target]) return true;
         }
     }
-    console.log(cache);
     return false;
 };
