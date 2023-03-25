@@ -40,3 +40,25 @@ var canPartition = function(nums) {
     }
     return false;
 };
+
+// DP approach using set
+var canPartition = function(nums) {
+    let sum = nums.reduce((acc, curr) => (acc + curr), 0);
+
+    if (sum % 2 === 1) return false;
+    target = sum / 2;
+
+    let cache = new Set();
+    cache.add(0);
+
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+        let newCache = new Set();
+        for (let cachedNum of cache) {
+            newCache.add(cachedNum);
+            newCache.add(cachedNum + num);
+        }
+        cache = newCache;
+    }
+    return cache.has(target);
+};
