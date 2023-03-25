@@ -20,19 +20,24 @@ var canPartition = function(nums) {
 
 // first try DP approach
 var canPartition = function(nums) {
-    let cache = [0];
-    let target = nums.reduce((acc, curr) => (acc + curr), 0) / 2;
+    let sum = nums.reduce((acc, curr) => (acc + curr), 0);
+
+    if (sum % 2 === 1) return false;
+    target = sum / 2;
+
+    let cache = Array(target + 1).fill(false);
+    cache[0] = true;
 
     for(let i = 0; i < nums.length; i++) {
-        let curr = nums[i];
-        let len = cache.length;
+        let num = nums[i];
 
-        for (let j = 0; j < len; j++) {
-            let sum = curr + cache[j];
-            if (sum === target) return true;
-            cache.push(sum);
+        for (let j = target; j >= 0; j--) {
+            let complement = j - num;
+
+            if (cache[complement]) cache[j] = true;
+            if (cache[target]) return true;
         }
     }
-
+    console.log(cache);
     return false;
 };
