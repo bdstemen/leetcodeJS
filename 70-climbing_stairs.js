@@ -21,9 +21,9 @@ var climbStairs = function(n) {
     let two = 1;
 
     for (let i = 0; i < n - 1; i++) {
-        temp = one;
-        one = one + two;
-        two = temp;
+        temp = two;
+        two = one;
+        one = two + temp;
     }
 
     return one;
