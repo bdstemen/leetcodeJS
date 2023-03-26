@@ -1,4 +1,4 @@
-// DP approach
+// DP approach O(n) time O(n) space
 var minCostClimbingStairs = function(cost) {
     let n = cost.length;
     let totalCost = Array(n);
