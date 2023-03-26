@@ -11,6 +11,7 @@ var minCostClimbingStairs = function(cost) {
     return Math.min(totalCost[0], totalCost[1]);
 };
 
+// DP approach O(n) time O(1) space
 var minCostClimbingStairs = function(cost) {
     for (let i = cost.length - 3; i >= 0; i--) {
         cost[i] += Math.min(cost[i + 1], cost[i + 2]);
