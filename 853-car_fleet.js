@@ -39,3 +39,5 @@ var carFleet = function(target, position, speed) {
 
     return fleets.length;
 };
+
+// both solutions run with O(nlogn) time because of the sorting operation
