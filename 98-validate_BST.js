@@ -19,3 +19,17 @@ var isValidBST = function(root) {
     }
     return true;
 };
+
+// simple recursive solution
+var isValidBST = function(root) {
+    let validate = function(node, leftBound, rightBound) {
+        if (!node) {
+            return true;
+        } else if (!(node.val > leftBound) || !(node.val < rightBound)) {
+            return false;
+        }
+        return validate(node.left, leftBound, node.val) && validate(node.right, node.val, rightBound);
+    }
+
+    return validate(root, -Infinity, Infinity);
+};
