@@ -1,3 +1,4 @@
+// initial solution
 var isValidBST = function(root) {
     let vals = [];
 
@@ -43,3 +44,5 @@ var isValidBST = function(root, leftBound = -Infinity, rightBound = Infinity) {
     }
     return isValidBST(root.left, leftBound, root.val) && isValidBST(root.right, root.val, rightBound);
 };
+
+// all solutions are O(n) time
