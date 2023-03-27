@@ -3,22 +3,19 @@ var isValidBST = function(root) {
 
     let traverseInOrder = function(node) {
         if (!node.left && !node.right) {
-            return [true, node.val];
+            vals.push(node.val);
+            return;
         }
 
-        if (!node.left) {
-            let right = traverseInOrder(node.right);
-            return [(right[1] > node.val), node.val];
-        } else if (!node.right) {
-            let left = traverseInOrder(node.left);
-            return  [(left[1] < node.val), node.val];
-        } else {
-            let right = traverseInOrder(node.right);
-            let left = traverseInOrder(node.left);
-            return  [((left[1] < node.val) && (right[1] > node.val)), node.val];
-        }
+        if (node.left) traverseInOrder(node.left);
+        vals.push(node.val);
+        if (node.right) traverseInOrder(node.right);
     }
 
-    let result = traverseInOrder(root);
-    return result[0];
+    traverseInOrder(root);
+
+    for (let i = 0; i < vals.length - 1; i++) {
+        if (vals[i] >= vals[i + 1]) return false;
+    }
+    return true;
 };
