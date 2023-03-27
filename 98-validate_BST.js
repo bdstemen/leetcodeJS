@@ -33,3 +33,13 @@ var isValidBST = function(root) {
 
     return validate(root, -Infinity, Infinity);
 };
+
+// pure recursive solution
+var isValidBST = function(root, leftBound = -Infinity, rightBound = Infinity) {
+    if (!root) {
+        return true;
+    } else if (!(root.val > leftBound) || !(root.val < rightBound)) {
+        return false;
+    }
+    return isValidBST(root.left, leftBound, root.val) && isValidBST(root.right, root.val, rightBound);
+};
