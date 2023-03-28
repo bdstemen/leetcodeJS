@@ -4,17 +4,16 @@ var isIsomorphic = function(s, t) {
     let mapTS = {};
 
     for (let i = 0; i < s.length; i++) {
-        if (mapST.hasOwnProperty(s[i]) || mapTS.hasOwnProperty(t[i])) {
-            if (mapST[s[i]] !== t[i] || mapTS[t[i]] !== s[i]) return false;
-        } else {
-            mapST[s[i]] = t[i];
-            mapTS[t[i]] = s[i];
+        if ((mapST.hasOwnProperty(s[i]) && mapST[s[i]] !== t[i]) || (mapTS.hasOwnProperty(t[i]) && mapTS[t[i]] !== s[i])) {
+            return false;
         }
+        mapST[s[i]] = t[i];
+        mapTS[t[i]] = s[i];
     }
     return true;
 };
 
-// slightly refined solution
+// different solution
 var isIsomorphic = function(s, t) {
     let map = {};
 
@@ -29,3 +28,5 @@ var isIsomorphic = function(s, t) {
     let valsSet = new Set(vals);
     return vals.length === valsSet.size;
 };
+
+// both solutions are O(n), I think the first one is more readable
