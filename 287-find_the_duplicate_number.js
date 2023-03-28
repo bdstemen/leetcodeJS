@@ -6,3 +6,13 @@ var findDuplicate = function(nums) {
         }
     }
 };
+
+// O(n) time O(n) space with hashing
+var findDuplicate = function(nums) {
+    let hash = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        if (hash.hasOwnProperty(nums[i])) return nums[i];
+        else hash[nums[i]] = i;
+    }
+};
