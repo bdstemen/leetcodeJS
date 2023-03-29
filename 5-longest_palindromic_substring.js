@@ -1,4 +1,4 @@
-// brute force solution O(n^2) timed out
+// brute force solution O(n^3) timed out
 var longestPalindrome = function(s) {
     let maxLengthPalindrome = '';
     for (let i = 0; i < s.length; i++) {
