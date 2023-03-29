@@ -16,3 +16,30 @@ var isPalindrome = function(s) {
     let reversed = s.slice().split('').reverse().join('');
     return reversed === s;
 };
+
+
+// optimized solution O(n^2)
+var longestPalindrome = function(s) {
+    let maxLengthSubstring = '';
+    for (let i = 0; i < s.length; i++) {
+        let l = r = i;
+        while (l >= 0 && r < s.length && s[l] === s[r]) {
+            if ((r - l + 1) > maxLengthSubstring.length) {
+                maxLengthSubstring = s.slice(l, r + 1)
+            }
+            l--;
+            r++
+        }
+
+        l = i;
+        r = i + 1;
+        while (l >= 0 && r < s.length && s[l] === s[r]) {
+            if ((r - l + 1) > maxLengthSubstring.length) {
+                maxLengthSubstring = s.slice(l, r + 1)
+            }
+            l--;
+            r++
+        }
+    }
+    return maxLengthSubstring;
+};
