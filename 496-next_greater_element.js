@@ -1,3 +1,4 @@
+// brute force solution O(n^2) time
 var nextGreaterElement = function(nums1, nums2) {
     let result = Array(nums1.length);
     for (let i = 0; i < result.length; i++) {
@@ -14,7 +15,7 @@ var nextGreaterElement = function(nums1, nums2) {
     return result;
 };
 
-
+// stack solution O(n + m) time
 var nextGreaterElement = function(nums1, nums2) {
     let result = Array(nums1.length);
     let hash = {};
