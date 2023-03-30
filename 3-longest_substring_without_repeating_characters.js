@@ -15,7 +15,7 @@
   return max;
 };
 
-//
+// O(n) time
 var lengthOfLongestSubstring = function(s) {
     let l = 0;
     let max = 0;
