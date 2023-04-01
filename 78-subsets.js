@@ -31,3 +31,16 @@ var subsets = function(nums) {
     backtrack(0, []);
     return subsets;
 };
+
+// pure recursive solution
+var subsets = function(nums, i = 0, curr = []) {
+    let results = [];
+
+    if (i === nums.length) {
+        results.push(curr)
+    } else {
+        results = results.concat(subsets(nums, i + 1, curr.concat(nums[i])), subsets(nums, i + 1, curr))
+    }
+
+    return results;
+};
