@@ -12,3 +12,22 @@ var strStr = function(haystack, needle) {
     }
     return -1;
 };
+
+// slightly faster solution, still O(N x M) worst case time complexity
+var strStr = function(haystack, needle) {
+    let i = 0;
+    while (i < haystack.length) {
+        if (haystack[i] === needle[0]) {
+            let j = 0;
+            while (needle[j] === haystack[i] && j < needle.length) {
+                i++;
+                j++;
+            }
+            if (j === needle.length) return i - j;
+            else i = i - j + 1;
+        } else {
+            i++;
+        }
+    }
+    return -1;
+};
