@@ -31,3 +31,16 @@ var strStr = function(haystack, needle) {
     }
     return -1;
 };
+
+// simple solution using slice
+var strStr = function(haystack, needle) {
+  let i = 0;
+  while (i < haystack.length) {
+      if (haystack[i] === needle[0]) {
+          let slice = haystack.slice(i, i + needle.length);
+          if (slice === needle) return i;
+      }
+      i++;
+  }
+  return -1;
+};
