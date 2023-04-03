@@ -1,6 +1,5 @@
 
-// O(n + m) time, O(n) memory
-
+// hash one and then decrement O(n + m) time, O(n) memory
  var isAnagram = function(s, t) {
   if (s.length !== t.length) return false;
 
@@ -14,6 +13,25 @@
       chars[t[i]]--;
   }
   return true;
+};
+
+// hash both and compare
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) return false;
+
+    let sCharCount = {};
+    let tCharCount = {};
+
+    for (let i = 0; i < s.length; i++) {
+        sCharCount[s[i]] = sCharCount[s[i]] + 1 || 1;
+        tCharCount[t[i]] = tCharCount[t[i]] + 1 || 1;
+    }
+
+    for (let char in sCharCount) {
+        if (sCharCount[char] !== tCharCount[char]) return false;
+    }
+
+    return true;
 };
 
 // same strat, with helper func
