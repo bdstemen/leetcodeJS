@@ -36,3 +36,21 @@ var removeNthFromEnd = function(head, n) {
 
   return dummy.next;
 };
+
+var removeNthFromEnd = function(head, n) {
+  let dummy = new ListNode(0, head);
+  let pre = dummy;
+  let tail = head;
+
+  for (let i = 0; i < n; i++) {
+      tail = tail.next
+  }
+
+  while (tail) {
+      tail = tail.next;
+      pre = pre.next;
+  }
+
+  pre.next = pre.next.next;
+  return dummy.next;
+};
