@@ -35,35 +35,29 @@ var reorderList = function(head) {
 
 
 var reorderList = function(head) {
-  if (!head) return;
+    let slow = fast = head;
+    while (fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
 
-  let slow = head;
-  let fast = head;
+    let curr = slow;
+    let next = pre = null;
+    while (curr) {
+        next = curr.next;
+        curr.next = pre;
+        pre = curr;
+        curr = next;
+    }
 
-  while (fast && fast.next) {
-      slow = slow.next;
-      fast = fast.next.next;
-  }
+    curr = head;
+    next = curr.next;
+    while (next) {
+        curr.next = pre;
+        curr = pre;
+        pre = next;
+        next = curr.next;
+    }
 
-  let curr = slow;
-  let pre = null;
-  let next = null;
-
-  while (curr) {
-      next = curr.next;
-      curr.next = pre;
-      pre = curr;
-      curr = next;
-  }
-
-  curr = head;
-  next = curr.next;
-  let tail = pre;
-
-  while (next) {
-      curr.next = tail;
-      curr = tail;
-      tail = next;
-      next = curr.next;
-  }
+    return head;
 };
