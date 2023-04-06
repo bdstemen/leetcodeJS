@@ -19,3 +19,25 @@ var findKthLargest = function(nums, k) {
 
     return heap[k - 1];
 };
+
+var findKthLargest = function(nums, k) {
+    const quickSelect = function(l, r) {
+        let pivot = nums[r];
+        let p = l;
+
+        for (let i = l; i < r; i++) {
+            if (nums[i] <= pivot) {
+                [nums[p], nums[i]] = [nums[i], nums[p]];
+                p++;
+            }
+        }
+
+        [nums[p], nums[r]] = [nums[r], nums[p]];
+
+        if ((nums.length - p) === k) return pivot;
+        else if ((nums.length - p) < k) return quickSelect(l, p - 1);
+        else return quickSelect(p + 1, r);
+    }
+
+    return quickSelect(0, nums.length - 1);
+};
