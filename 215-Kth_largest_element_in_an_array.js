@@ -20,6 +20,7 @@ var findKthLargest = function(nums, k) {
     return heap[k - 1];
 };
 
+// quick select method O(n) average time complexity O(n^2) worst case
 var findKthLargest = function(nums, k) {
     const quickSelect = function(l, r) {
         let pivot = nums[r];
