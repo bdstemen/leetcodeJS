@@ -1,9 +1,10 @@
+// nieve O(nlogn) solution
 var sortedSquares = function(nums) {
     return nums.map(num => num * num).sort((a, b) => (a - b));
 };
 
 
-
+// linear time solution
 var sortedSquares = function(nums) {
   let result = Array(nums.length - 1);
   let l = 0;
