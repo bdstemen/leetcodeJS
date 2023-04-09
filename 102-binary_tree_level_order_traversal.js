@@ -27,18 +27,16 @@ var levelOrder = function(root) {
     let queue = [root];
 
     while (queue.length) {
-        let level = [];
         let len = queue.length;
-
-        for (let i = len - 1; i > -1; i--) {
-            let curr = queue.shift();
-            if (curr) {
-                level.push(curr.val);
-                queue.push(curr.left);
-                queue.push(curr.right);
-            }
+        let level = [];
+        for (let i = 0; i < len; i++) {
+            let node = queue.shift();
+            if (!node) continue;
+            level.push(node.val);
+            queue.push(node.left);
+            queue.push(node.right);
         }
-        if (level.length) result.push(level);
+        if (level.length) result.push(level)
     }
 
     return result;
