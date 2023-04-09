@@ -16,3 +16,16 @@ var hasPathSum = function(root, targetSum) {
 
   return dfs(root, 0);
 };
+
+// pure recursive solution
+var hasPathSum = function(root, targetSum, currSum = 0) {
+  if (!root) return false;
+
+  currSum += root.val;
+
+  if (!root.left && !root.right) {
+      return currSum === targetSum;
+  }
+
+  return (hasPathSum(root.left, targetSum, currSum) || hasPathSum(root.right, targetSum, currSum))
+};
