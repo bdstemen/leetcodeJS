@@ -1,18 +1,18 @@
+// O(n) time complexity - have to visit every node since BT, not BST
+// O(h) memory avg, O(n) worst case, O(logn) if balanced
 var hasPathSum = function(root, targetSum) {
-    let hasPath = false;
 
-    const dfs = function(node, currSum) {
-        currSum += node.val;
+  const dfs = function(node, currSum) {
+      if (!node) return false;
 
-        if (!node.left && !node.right) {
-            if (currSum === targetSum) hasPath = true;
-            return;
-        }
+      currSum += node.val;
 
-        if (node.left) dfs(node.left, currSum);
-        if (node.right) dfs(node.right, currSum);
-    }
+      if (!node.left && !node.right) {
+          return currSum === targetSum;
+      }
 
-    if (root) dfs(root, 0);
-    return hasPath;
+      return (dfs(node.left, currSum) || dfs(node.right, currSum))
+  }
+
+  return dfs(root, 0);
 };
