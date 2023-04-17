@@ -38,7 +38,7 @@ var addTwoNumbers = function(l1, l2) {
     return result.next;
 };
 
-// cleaner solution
+// cleaner solution, O(n) time
 var addTwoNumbers = function(l1, l2) {
     let result = new ListNode();
     let end = result;
