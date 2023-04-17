@@ -45,7 +45,7 @@ var swapPairs = function(head) {
     return result.next;
 };
 
-// cleaner, one pass solution
+// o(n) time
 var swapPairs = function(head) {
   if (!head || !head.next) return head;
 
