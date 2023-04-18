@@ -1,3 +1,4 @@
+// brute force solution O(n^2) time, O(1) memory
 var getIntersectionNode = function(headA, headB) {
   if (!headA || !headB) return null;
 
