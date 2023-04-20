@@ -1,3 +1,4 @@
+// O(n * m) time
 var checkInclusion = function(s1, s2) {
   let s1Chars = {};
   let windowChars = {};
