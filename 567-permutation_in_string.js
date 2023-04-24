@@ -1,4 +1,4 @@
-//
+// O(26 * n) time complexity
 var checkInclusion = function(s1, s2) {
   let s1Chars = {};
   let windowChars = {};
@@ -29,7 +29,7 @@ var isPermutation = function(key, curr) {
   return true;
 }
 
-//
+// O(n) time complexity
 var checkInclusion = function(s1, s2) {
   let s1Chars = Array(26).fill(0);
   let windowChars = Array(26).fill(0);
