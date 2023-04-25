@@ -2,7 +2,7 @@
 var preorderTraversal = function(root) {
     let result = [];
 
-    const bfs = function(node) {
+    const dfs = function(node) {
         if (!node) return;
 
         result.push(node.val);
