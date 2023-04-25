@@ -22,3 +22,19 @@ var preorderTraversal = function(root, result = []) {
 
   return result;
 };
+
+// iterative dfs
+var preorderTraversal = function(root) {
+  let result = [];
+  let queue = [root];
+
+  while (queue.length) {
+      let node = queue.pop();
+      if (!node) continue;
+      result.push(node.val);
+      queue.push(node.right);
+      queue.push(node.left);
+  }
+
+  return result;
+};
