@@ -26,14 +26,14 @@ var preorderTraversal = function(root, result = []) {
 // iterative dfs
 var preorderTraversal = function(root) {
   let result = [];
-  let queue = [root];
+  let stack = [root];
 
-  while (queue.length) {
-      let node = queue.pop();
+  while (stack.length) {
+      let node = stack.pop();
       if (!node) continue;
       result.push(node.val);
-      queue.push(node.right);
-      queue.push(node.left);
+      stack.push(node.right);
+      stack.push(node.left);
   }
 
   return result;
