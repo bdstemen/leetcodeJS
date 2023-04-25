@@ -14,3 +14,11 @@ var postorderTraversal = function(root) {
     return result;
 };
 
+// pure recursive
+var postorderTraversal = function(root, result = []) {
+  if (!root) return result;
+
+  result = result.concat(postorderTraversal(root.left), postorderTraversal(root.right), root.val);
+
+  return result;
+};
