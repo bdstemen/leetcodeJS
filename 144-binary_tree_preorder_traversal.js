@@ -13,3 +13,12 @@ var preorderTraversal = function(root) {
     bfs(root);
     return result;
 };
+
+// pure recursive
+var preorderTraversal = function(root, result = []) {
+  if (!root) return result;
+
+  result = result.concat(root.val, preorderTraversal(root.left), preorderTraversal(root.right));
+
+  return result;
+};
