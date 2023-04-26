@@ -1,3 +1,4 @@
+// initial solution (overcomplicated)
 var missingNumber = function(nums) {
     nums.push(null);
 
@@ -12,4 +13,16 @@ var missingNumber = function(nums) {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === null) return i;
     }
+};
+
+// clean sum solution
+var missingNumber = function(nums) {
+  let sum = nums.length;
+
+  for (let i = 0; i < nums.length; i++) {
+      sum += i;
+      sum -= nums[i];
+  }
+
+  return sum;
 };
