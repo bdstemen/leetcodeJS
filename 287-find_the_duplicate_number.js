@@ -16,3 +16,18 @@ var findDuplicate = function(nums) {
         else hash[nums[i]] = i;
     }
 };
+
+//
+var findDuplicate = function(nums) {
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === i + 1) continue;
+
+        while (nums[i] !== i + 1) {
+            if (nums[i] === nums[nums[i] - 1]) return nums[i];
+
+            let temp = nums[nums[i] - 1];
+            nums[nums[i] - 1] = nums[i]
+            nums[i] = temp;
+        }
+    }
+};
