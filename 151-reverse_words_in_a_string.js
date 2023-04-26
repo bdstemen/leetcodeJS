@@ -1,22 +1,12 @@
 // O(n) time O(n) space
 var reverseWords = function(s) {
-    let sentence = [];
-    let i = 0;
+  let reversed = '';
+  s = s.split(' ');
 
-    while (i < s.length) {
-        let word = '';
+  for (let i = s.length - 1; i >= 0; i--) {
+      if (s[i] === '') continue;
+      else reversed += `${s[i]} `;
+  }
 
-        while (i < s.length && s[i] === ' ') {
-            i++;
-        }
-
-        while (i < s.length && s[i] !== ' ') {
-            word += s[i];
-            i++
-        }
-
-        if (word.length) sentence.push(word);
-    }
-
-    return sentence.reverse().join(' ');
+  return reversed.trim();
 };
