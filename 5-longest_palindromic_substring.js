@@ -20,26 +20,25 @@ var isPalindrome = function(s) {
 
 // optimized solution O(n^2)
 var longestPalindrome = function(s) {
-    let maxLengthSubstring = '';
+    let maxLenPal = '';
+
     for (let i = 0; i < s.length; i++) {
-        let l = r = i;
+        let l = i;
+        let r = i;
         while (l >= 0 && r < s.length && s[l] === s[r]) {
-            if ((r - l + 1) > maxLengthSubstring.length) {
-                maxLengthSubstring = s.slice(l, r + 1)
-            }
+            if ((r - l + 1) > maxLenPal.length) maxLenPal = s.slice(l, r + 1);
             l--;
-            r++
+            r++;
         }
 
         l = i;
         r = i + 1;
         while (l >= 0 && r < s.length && s[l] === s[r]) {
-            if ((r - l + 1) > maxLengthSubstring.length) {
-                maxLengthSubstring = s.slice(l, r + 1)
-            }
+            if ((r - l + 1) > maxLenPal.length) maxLenPal = s.slice(l, r + 1);
             l--;
-            r++
+            r++;
         }
     }
-    return maxLengthSubstring;
+
+    return maxLenPal;
 };
