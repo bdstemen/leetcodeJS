@@ -2,23 +2,18 @@
 var combinationSum = function(candidates, target) {
     let combinations = [];
 
-    let generateCombinations = function(nums, curr) {
-        let sum = curr.reduce((acc, cv) => acc + cv, 0);
-
-        if (sum === target) {
-            combinations.push(curr);
+    const backtrack = function(combination, sum, i) {
+        if (sum > target || i === candidates.length) {
             return;
-        } else if (sum > target) {
-            return;
-        } else if (!nums.length) {
+        } else if (sum === target) {
+            combinations.push(combination);
             return;
         }
+        backtrack(combination.concat(candidates[i]), sum + candidates[i], i);
+        backtrack(combination, sum, i + 1);
+    };
 
-        generateCombinations(nums.slice(1), curr);
-        generateCombinations(nums, curr.concat(nums[0]));
-    }
-
-    generateCombinations(candidates, []);
+    backtrack([], 0, 0);
     return combinations;
 };
 
