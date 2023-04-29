@@ -1,3 +1,4 @@
+// backtracking - recursive solution
 var combinationSum2 = function(candidates, target) {
     let combinations = [];
     candidates = candidates.sort((a, b) => (a - b))
