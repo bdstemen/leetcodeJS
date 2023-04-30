@@ -1,7 +1,4 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
+// O(n) time, O(n) space
  var isPalindrome = function(s) {
   if (s.length < 2) return true;
   s = s.toLowerCase().replace(/[^a-z0-9]/gi,'');
@@ -16,3 +13,4 @@
 
   return true;
 };
+
