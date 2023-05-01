@@ -6,7 +6,7 @@ var isPalindrome = function(s) {
   return filteredString === filteredReversedString;
 };
 
-// optimized solution - O(n) time O(1) space
+// O(n) time O(1) space
 var isPalindrome = function(s) {
   let l = 0;
   let r = s.length - 1;
@@ -27,3 +27,30 @@ var isPalindrome = function(s) {
 
   return true;
 };
+
+// optimized solution
+var isPalindrome = function(s) {
+  let l = 0;
+  let r = s.length - 1;
+
+  while (l < r) {
+      while (!isAlphaNumeric(s[l]) && l < r) {
+          l++;
+      }
+
+      while (!isAlphaNumeric(s[r]) && r > l) {
+          r--;
+      }
+
+      if (s[l].toLowerCase() !== s[r].toLowerCase()) return false;
+
+      l++;
+      r--;
+  }
+
+  return true;
+};
+
+var isAlphaNumeric = function(char) {
+  return (/[0-9a-zA-Z]/).test(char);
+}
