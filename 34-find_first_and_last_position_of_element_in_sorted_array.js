@@ -1,3 +1,9 @@
+// O(n) solution
+var searchRange = function(nums, target) {
+    return [nums.indexOf(target), nums.lastIndexOf(target)];
+};
+
+// O(logn) solution
 var searchRange = function(nums, target) {
     let result = [-1, -1];
     let l = 0;
@@ -8,6 +14,7 @@ var searchRange = function(nums, target) {
         m = Math.floor((l + r) / 2);
         if (nums[m] === target && nums[m - 1] !== nums[m]) {
             result[0] = m;
+            r = nums.length - 1;
             break;
         } else if (nums[m] < target) {
             l = m + 1;
@@ -15,9 +22,6 @@ var searchRange = function(nums, target) {
             r = m - 1;
         }
     }
-
-    l = 0;
-    r = nums.length - 1;
 
     while (l <= r) {
         m = Math.floor((l + r) / 2);
