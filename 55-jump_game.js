@@ -1,3 +1,5 @@
+// DP approach
+
 
 // greedy solution: O(n) time O(1) space
 var canJump = function(nums) {
